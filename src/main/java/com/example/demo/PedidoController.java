@@ -20,4 +20,10 @@ public class PedidoController {
     public List<Pedido> porEstado(@RequestParam String estado) {
         return pedidoService.obtenerPorEstado(estado);
     }
+
+    @org.springframework.web.bind.annotation.PostMapping
+    public org.springframework.http.ResponseEntity<Pedido> crear(@org.springframework.web.bind.annotation.RequestBody Pedido pedido) {
+        Pedido creado = pedidoService.crearPedido(pedido);
+        return org.springframework.http.ResponseEntity.status(org.springframework.http.HttpStatus.CREATED).body(creado);
+    }
 }
