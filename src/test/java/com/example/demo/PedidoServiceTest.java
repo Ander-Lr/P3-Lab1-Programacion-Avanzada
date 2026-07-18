@@ -25,10 +25,8 @@ class PedidoServiceTest {
         // Arrange
         Pedido nuevo = new Pedido("Luis", 40.0, "PENDIENTE");
         given(pedidoRepository.save(any(Pedido.class))).willReturn(nuevo);
-
         // Act
         Pedido resultado = pedidoService.crearPedido(nuevo);
-
         // Assert
         assertThat(resultado.getCliente()).isEqualTo("Luis");
         verify(pedidoRepository).save(nuevo);
